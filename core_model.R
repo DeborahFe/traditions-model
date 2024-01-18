@@ -7,7 +7,7 @@ p <- list(
   K = 200, ## pop size
   female_strategy = "conformity", ## alternatives: "koinophilia" or "conformity"
   survival = 0.9, ## must be < 1
-  # ageing = 0.1, ## probability to stay in the same age class from one time step to the nexta
+  ageing = 0.1, ## probability to stay in the same age class from one time step to the next
   initial_trait_frequency = 0.5, # initial probability that males have trait 1 (and neutral trait 1)
   # initial_choice_frequency = 0.1, # initial probability that females have chosen trait 1
   n_matings = 10, ## maximum number of matings for males at every time step, must be > 0
@@ -258,13 +258,13 @@ dynamics <- function(tmax, parameters, return_tradition_only = FALSE) { # if ret
 
     ## ageing / death
     pop$males[pop$males[, "alive"] == 0, ] <- NA # rows of NA for dead males
-    # pos_males_age <- which(!is.na(pop$males[, "age"]))
-    # pop$males[pos_males_age, "age"] <- ifelse(runif(length(pos_males_age)) > parameters$ageing, pop$males[pos_males_age, "age"] + 1, pop$males[pos_males_age, "age"])
-    pop$males[, "age"] <- pop$males[, "age"] + 1
+    pos_males_age <- which(!is.na(pop$males[, "age"]))
+    pop$males[pos_males_age, "age"] <- ifelse(runif(length(pos_males_age)) > parameters$ageing, pop$males[pos_males_age, "age"] + 1, pop$males[pos_males_age, "age"])
+    # pop$males[, "age"] <- pop$males[, "age"] + 1
     pop$females[pop$females[, "alive"] == 0, ] <- NA # rows of NA for dead females
-    # pos_females_age <- which(!is.na(pop$females[, "age"]))
-    # pop$females[pos_females_age, "age"] <- ifelse(runif(length(pos_females_age)) > parameters$ageing, pop$females[pos_females_age, "age"] + 1, pop$females[pos_females_age, "age"])
-    pop$females[, "age"] <- pop$females[, "age"] + 1
+    pos_females_age <- which(!is.na(pop$females[, "age"]))
+    pop$females[pos_females_age, "age"] <- ifelse(runif(length(pos_females_age)) > parameters$ageing, pop$females[pos_females_age, "age"] + 1, pop$females[pos_females_age, "age"])
+    # pop$females[, "age"] <- pop$females[, "age"] + 1
 
     
     # add newborns to tables
