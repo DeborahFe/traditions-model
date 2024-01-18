@@ -90,9 +90,9 @@ init_pop <- function(parameters) {
   return(list(males = males, females = females, reproductive = reproductive, observing = observing))
 }
 # 
-parameters <- p
-tmax <- 10
-return_tradition_only = FALSE
+# parameters <- p
+# tmax <- 10
+# return_tradition_only = FALSE
 
 dynamics <- function(tmax, parameters, return_tradition_only = FALSE) { # if return_tradition_only = FALSE, store raw temporal results, if not, store only one tradition (duration) per simulation
   ## initialization
@@ -258,11 +258,14 @@ dynamics <- function(tmax, parameters, return_tradition_only = FALSE) { # if ret
 
     ## ageing / death
     pop$males[pop$males[, "alive"] == 0, ] <- NA # rows of NA for dead males
-    pos_males_age <- which(!is.na(pop$males[, "age"]))
-    pop$males[pos_males_age, "age"] <- ifelse(runif(length(pos_males_age)) > parameters$ageing, pop$males[pos_males_age, "age"] + 1, pop$males[pos_males_age, "age"])
+    # pos_males_age <- which(!is.na(pop$males[, "age"]))
+    # pop$males[pos_males_age, "age"] <- ifelse(runif(length(pos_males_age)) > parameters$ageing, pop$males[pos_males_age, "age"] + 1, pop$males[pos_males_age, "age"])
     pop$males[, "age"] <- pop$males[, "age"] + 1
     pop$females[pop$females[, "alive"] == 0, ] <- NA # rows of NA for dead females
+    # pos_females_age <- which(!is.na(pop$females[, "age"]))
+    # pop$females[pos_females_age, "age"] <- ifelse(runif(length(pos_females_age)) > parameters$ageing, pop$females[pos_females_age, "age"] + 1, pop$females[pos_females_age, "age"])
     pop$females[, "age"] <- pop$females[, "age"] + 1
+
     
     # add newborns to tables
     if (length(pos_fR) > 0) { # if there are mothers...
@@ -426,7 +429,8 @@ dynamics <- function(tmax, parameters, return_tradition_only = FALSE) { # if ret
 
 # test code
 p$K <- 200
-p$nb_class = c(1,2)
+p$nb_class <- c(1,1)
+p$ageing <- 0.1
 p$female_strategy <- "conformity"
 p$n_obs <- 0
 p$c <- 0.5
