@@ -7,7 +7,7 @@ p <- list(
   K = 200, ## pop size
   female_strategy = "conformity", ## alternatives: "koinophilia" or "conformity"
   survival = 0.9, ## must be < 1
-  # ageing = 0.1, ## probability to stay in the same age class from one time step to the next
+  # ageing = 0.1, ## probability to stay in the same age class from one time step to the nexta
   initial_trait_frequency = 0.5, # initial probability that males have trait 1 (and neutral trait 1)
   # initial_choice_frequency = 0.1, # initial probability that females have chosen trait 1
   n_matings = 10, ## maximum number of matings for males at every time step, must be > 0
