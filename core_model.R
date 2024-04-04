@@ -11,18 +11,18 @@ p <- list(
   initial_trait_frequency = 0.5, # initial probability that males have trait 1 (and neutral trait 1)
   # initial_choice_frequency = 0.1, # initial probability that females have chosen trait 1
   n_matings = 10, ## maximum number of matings for males at every time step, must be > 0
-  heritability = 1, ## with mutation rate = 1 - heritability
+  mutation_rate = 0.1, ## with heritability = 1 - mutation_rate
   n_obs = 10, ## maximal number of couples observed per female
   c = 0.6, ## copying rate
   n_steps_removed = 50) ## must be > 0
 
 ## dataframe for parameters variation
 param_variation <- expand.grid(n_obs = c(4, 6, 8, 10, 15),
-                               heritability = 1,
+                               mutation_rate = c(0.1, 0.3, 0.5),
                                c = seq(0.6, 0.8, 0.05))
 param_variation_null <- expand.grid(n_obs = 0,
-                               heritability = 1,
-                               c = seq(0.6, 0.8, 0.05))
+                                    mutation_rate = c(0.1, 0.3, 0.5),
+                                    c = seq(0.6, 0.8, 0.05))
 
 ## number of replicates per combination of parameters
 n_replicates <- 100
@@ -244,10 +244,10 @@ dynamics <- function(tmax, parameters, return_tradition_only = FALSE) { # if ret
         # print(pop$females[who_is_the_mother, "trait"])
         # print(pop$males[who_is_the_father, "trait"])
         # mutation
-        mutation_rate <- 1 - parameters$heritability
-        mute <- runif(nb_newborns) < mutation_rate
+        # mutation_rate <- 1 - parameters$heritability
+        mute <- runif(nb_newborns) < parameters$mutation_rate
         if (any(mute)) newborn_trait[mute] <- rbinom(sum(mute), size = 1, prob = 1/2)
-        mute <- runif(nb_newborns) < mutation_rate
+        mute <- runif(nb_newborns) < parameters$mutation_rate
         if (any(mute)) newborn_neutral[mute] <- rbinom(sum(mute), size = 1, prob = 1/2)
         # print("the next line is newborns traits, and male newborn traits")
         # print(newborn_trait)
@@ -434,7 +434,7 @@ p$ageing <- 0.1
 p$female_strategy <- "conformity"
 p$n_obs <- 0
 p$c <- 0.5
-p$heritability <- 1
+p$mutation_rate <- 0.1
 p$n_matings <- 10
 p$n_steps_removed <- 100
 sim <- dynamics(500, p, return_tradition_only = F)
