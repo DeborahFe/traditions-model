@@ -445,6 +445,14 @@ lines(sim$male_neutral, col = "gray")
 lines(sim$choice, col = "red", lty = 3)
 abline(h = 0.5, lty = 2)
 
+# test Grangier causality
+data <- as.data.frame(cbind(sim$male_trait, sim$choice))
+colnames(data) <- c("male_trait", "female_choice")
+
+grangertest(male_trait ~ female_choice, order = 5, data = data)
+# order 1: F = 4.9, order 2: F = 7.2, order 3: F = 6.4
+grangertest(female_choice ~ male_trait, order = 5, data = data)
+# order 1: F = 788.9, order 2: F = 196.1, order 3: F = 136
 
 # nb <- sum(p$nb_class)
 # coul <- NULL
