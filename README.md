@@ -81,7 +81,7 @@ Simulations data in main_results/ and supplementary_materials/ can be replicated
 
 #### Warning
 ⚠️ **Compute time**: 24-48 hours for full parameter exploration (Figure 4 data generation)
-Computations were performed on the [Migale cluster](https://migale.inrae.fr/cluster). 
+Computations were performed on [Migale cluster](https://migale.inrae.fr/cluster). 
 
 ## Contact
 For questions about the models or data, contact the corresponding author in the paper.
