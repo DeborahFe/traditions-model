@@ -51,7 +51,7 @@ traditions-model/
 
 The models are controlled by three key transmission fidelity parameters:
 
-- **n_obs**: *n_obs$ Number of mating observations per learning female (1 to 30, plus unlimited)
+- **n_obs**: $n_obs$ Number of mating observations per learning female (1 to 30, plus unlimited)
 - **c**: Copying fidelity - probability of following learned preference (0.5 to 1.0)
 - **mutation_rate**: Genetic mutation rate affecting male trait heritability (0.05 to 1.0)
 
