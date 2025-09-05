@@ -6,7 +6,7 @@ This repository contains the simulation models, simulations data, and scripts fo
 
 **"Gene-Culture Coevolution Favours the Emergence of Traditions in Mate Choice through Conformist Social Learning"**
 
-*Authors: D. Federico, F.X. Dechaume-Moncharmont, J.B. Ferdy, A. Pocheville*
+*Authors: D. Federico, M. Cosme, F.X. Dechaume-Moncharmont, J.B. Ferdy, A. Pocheville*
 
 ## Research Question
 
