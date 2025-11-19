@@ -8,6 +8,8 @@ This repository contains the simulation models, simulations data, and scripts fo
 
 *Authors: D. Federico, M. Cosme, F.X. Dechaume-Moncharmont, J.B. Ferdy, A. Pocheville*
 
+Preprint can be found on BioRxiv at: https://doi.org/10.1101/2025.09.05.674569
+
 ## Research Question
 
 This theoretical study investigates the conditions under which traditions emerge in mate choice when female preferences are socially transmitted through conformist learning while male traits are genetically inherited. We challenge the assumption that sophisticated social learning mechanisms are required for tradition formation by demonstrating how gene-culture coevolutionary dynamics can fundamentally alter these conditions.
