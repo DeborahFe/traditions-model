@@ -1194,7 +1194,7 @@ p <- list(
   nb_class = c(1,1),                    # Age structure: 1 juvenile + 1 adult class
   K = 1000,                             # Population carrying capacity
   female_strategy = "conformity",       # Learning strategy: "conformity" or "koinophilia"
-  survival = 0.9,                       # Baseline survival probability
+  survival = 0.999,                       # Baseline survival probability
   ageing = 0.9,                         # Probability of advancing to next age class
   initial_trait_frequency = 0.5,        # Initial frequency of trait 1 in population
   n_matings = 100,                      # Maximum matings per male (gene-culture model only)
