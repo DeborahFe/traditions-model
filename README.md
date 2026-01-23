@@ -35,11 +35,10 @@ We compare two individual-based models to understand how gene-culture interactio
 The models are controlled by three key transmission fidelity parameters:
 - **n_obs**: Number of mating observations per learning female
 - **c**: Copying fidelity, i.e. probability of following learned preference at each male encounter 
-- **mutation_rate**: Genetic mutation rate affecting male trait heritability 
+- **h**: Genetic transmission fidelity, controls the probability of faithful male trait transmission from parent to offspring (analogous to heritability)
 
 Additional demographic parameters:
 - **K**: Population size (default: 1000)
-- **survival**: Survival probability (default: 0.9)
 - **ageing**: Aging rate (default: 0.9)
 - **n_matings**: Maximum matings per male (default: 100)
 
